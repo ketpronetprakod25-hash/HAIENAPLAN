@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAIENAPLAN - តំបន់ទេសចរណ៍ ២៥ រាជធានី-ខេត្ត នៃកម្ពុជា</title>
+  
+  <!-- Google Fonts for Khmer -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&family=Moul&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --navy-primary: #0a233c;
+      --red-accent: #d94338;
+      --coral-accent: #e06d63;
+      --teal-accent: #225766;
+      --gold-accent: #d99b26;
+      --purple-accent: #5c4b8b;
+      --bg-cream: #f6f2e9;
+      --card-white: #ffffff;
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      font-family: 'Kantumruy Pro', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .brand-logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--navy-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--navy-primary);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--red-accent);
+    }
+
+    .nav-btn {
+      background-color: var(--red-accent);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .nav-btn:hover {
+      background-color: #b83228;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 50px 0 30px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-cream) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: var(--red-accent);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .sub-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--teal-accent);
+    }
+
+    .hero-title {
+      font-family: 'Moul', cursive;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--navy-primary);
+      line-height: 1.3;
+      margin: 8px 0 16px;
+    }
+
+    .hero-description {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 380px;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Destinations Section */
+    .section-header {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .section-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy-primary);
+    }
+
+    .stats-bar {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--teal-accent);
+      margin-bottom: 20px;
+    }
+
+    /* Search & Filter Controls */
+    .search-container {
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background: white;
+      border: 1px solid #d1d5db;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--teal-accent);
+      color: white;
+      border-color: var(--teal-accent);
+    }
+
+    /* Grid Layout for 25 Provinces */
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .dest-card {
+      background: var(--card-white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dest-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .dest-img-box {
+      position: relative;
+      height: 160px;
+    }
+
+    .dest-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dest-region-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(10, 35, 60, 0.85);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .dest-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .dest-info h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy-primary);
+      margin-bottom: 6px;
+    }
+
+    .dest-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .dest-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--coral-accent);
+      border-top: 1px solid #f3f4f6;
+      padding-top: 10px;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: white;
+      width: 90%;
+      max-width: 650px;
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      z-index: 10;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .price-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .price-card {
+      background: var(--bg-cream);
+      padding: 12px;
+      border-radius: 10px;
+      border-left: 4px solid var(--teal-accent);
+    }
+
+    .price-card.foreign {
+      border-left-color: var(--red-accent);
+    }
+
+    .price-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .price-card-val {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy-primary);
+      margin-top: 4px;
+    }
+
+    /* Booking Contact Section in Modal */
+    .booking-box {
+      background: #eef6f8;
+      border: 1px solid #bce1ec;
+      border-radius: 12px;
+      padding: 14px;
+      margin: 14px 0;
+    }
+
+    .booking-box h4 {
+      color: var(--teal-accent);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .booking-list {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .booking-list li {
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Specific Attraction Spotlight in Modal */
+    .spotlight-box {
+      background: var(--bg-cream);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 14px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .spotlight-box h4 {
+      font-size: 15px;
+      color: var(--navy-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .spotlight-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .spotlight-thumb {
+      width: 90px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .spotlight-thumb:hover {
+      opacity: 0.85;
+    }
+
+    .spotlight-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Fullscreen Image Lightbox Overlay with White Background on Left Side Description */
+    .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+
+    .lightbox-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      display: grid;
+      grid-template-columns: 340px 1fr; /* Left side panel (340px) and Right side image */
+      max-height: 85vh;
+    }
+
+    .lightbox-caption {
+      padding: 30px 24px;
+      background: #ffffff; /* Changed to white background */
+      color: var(--text-dark); /* Dark text color for readability on white */
+      border-right: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .lightbox-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy-primary); /* Navy color for title */
+      margin-bottom: 12px;
+    }
+
+    .lightbox-desc {
+      font-size: 13px;
+      color: var(--text-muted); /* Muted gray text color */
+      line-height: 1.6;
+    }
+
+    .lightbox-img-wrapper {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc; /* Light grayish background for image area */
+      padding: 10px;
+    }
+
+    .lightbox-img {
+      width: 100%;
+      height: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.7);
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Planner Form Section */
+    .planner-section {
+      background: white;
+      padding: 50px 0;
+      margin-top: 40px;
+    }
+
+    .planner-card {
+      background: var(--bg-cream);
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .planner-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy-primary);
+    }
+
+    .form-group select {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .generate-btn {
+      width: 100%;
+      background: var(--teal-accent);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .planner-output {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: white;
+      display: none;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--navy-primary);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    .footer-cta {
+      background: var(--teal-accent);
+      padding: 18px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .price-box {
+        grid-template-columns: 1fr;
+      }
+      .spotlight-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .spotlight-thumb {
+        width: 100%;
+        height: 140px;
+      }
+      /* Responsive for Lightbox on mobile: stack vertically */
+      .lightbox-content {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+      }
+      .lightbox-caption {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 16px;
+      }
+      .lightbox-img-wrapper {
+        min-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">✈ HAIENAPLAN</a>
+      <ul class="nav-links">
+        <li><a href="#hero">ទំព័រដើម</a></li>
+        <li><a href="#destinations">២៥ រាជធានី-ខេត្ត</a></li>
+        <li><a href="#planner">រៀបចំផែនការ</a></li>
+      </ul>
+      <a href="#planner" class="nav-btn">ចាប់ផ្តើមរៀបចំ</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-tag">រៀបចំឱ្យកាន់តែល្អ • ដើរលេងឱ្យបានច្រើន</span>
+        <div class="sub-title">តំបន់ទេសចរណ៍</div>
+        <h1 class="hero-title">២៥ រាជធានី-ខេត្ត</h1>
+        <p class="hero-description">
+          ស្វែងយល់ពីតំបន់ទេសចរណ៍ ព័ត៌មានតម្លៃសំបុត្រ និងលេខទូរស័ព្ទកក់សំបុត្រយន្តហោះ/រថយន្តក្រុង នៃគ្រប់រាជធានី និងខេត្តទាំង ២៥ នៃព្រះរាជាណាចក្រកម្ពុជា។
+        </p>
+      </div>
+      <div class="hero-image-wrapper">
+        <img class="hero-img" src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1000&q=80" alt="Cambodia Travel">
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations Section (25 Provinces) -->
+  <section id="destinations" class="container">
+    <div class="section-header">
+      <h2>✈ ស្វែងយល់ពីគ្រប់ ២៥ រាជធានី-ខេត្ត ✈</h2>
+    </div>
+
+    <div class="stats-bar" id="statsBar">
+      បង្ហាញទាំងអស់ ២៥ រាជធានី-ខេត្ត
+    </div>
+
+    <!-- Search Input -->
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 ស្វែងរកឈ្មោះខេត្ត ឬតំបន់ទេសចរណ៍..." onkeyup="filterAndSearch()">
+    </div>
+
+    <!-- Filter Buttons by Region Zone -->
+    <div class="filter-controls">
+      <button class="filter-btn active" onclick="setRegionFilter('all', this)">ទាំងអស់ (២៥)</button>
+      <button class="filter-btn" onclick="setRegionFilter('central', this)">ភាគកណ្ដាល</button>
+      <button class="filter-btn" onclick="setRegionFilter('northwest', this)">ភាគពាយ័ព្យ</button>
+      <button class="filter-btn" onclick="setRegionFilter('northeast', this)">ភាគឦសាន</button>
+      <button class="filter-btn" onclick="setRegionFilter('coastal', this)">ភាគត្បូង/ឆ្នេរ</button>
+      <button class="filter-btn" onclick="setRegionFilter('east', this)">ភាគកើត</button>
+    </div>
+
+    <!-- Dynamic Cards Grid -->
+    <div class="destinations-grid" id="destinationsGrid"></div>
+  </section>
+
+  <!-- Interactive Travel Planner -->
+  <section id="planner" class="planner-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>បង្កើតផែនការដំណើរកម្សាន្តតាមខេត្ត</h2>
+      </div>
+      <div class="planner-card">
+        <form class="planner-form" onsubmit="generateItinerary(event)">
+          <div class="form-group">
+            <label for="destinationSelect">ជ្រើសរើសរាជធានី-ខេត្ត</label>
+            <select id="destinationSelect"></select>
+          </div>
+          <div class="form-group">
+            <label for="visitorType">ប្រភេទភ្ញៀវទេសចរ</label>
+            <select id="visitorType">
+              <option value="khmer">ភ្ញៀវជាតិ (Cambodian)</option>
+              <option value="foreign">ភ្ញៀវបរទេស (Foreigner)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="daysSelect">ចំនួនថ្ងៃ</label>
+            <select id="daysSelect">
+              <option value="1">1 ថ្ងៃ</option>
+              <option value="2">2 ថ្ងៃ</option>
+              <option value="3">3 ថ្ងៃ</option>
+              <option value="5">5 ថ្ងៃ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="styleSelect">រចនាប័ទ្មធ្វើដំណើរ</label>
+            <select id="styleSelect">
+              <option value="សន្សំសំចៃ (Budget)">សន្សំសំចៃ (Budget)</option>
+              <option value="មធ្យម (Standard)">មធ្យម (Standard)</option>
+              <option value="លំដាប់ខ្ពស់ (Luxury)">លំដាប់ខ្ពស់ (Luxury)</option>
+            </select>
+          </div>
+        </form>
+        <button class="generate-btn" onclick="generateItinerary(event)">បង្កើតផែនការដំណើរកម្សាន្ត 🚀</button>
+
+        <div class="planner-output" id="plannerOutput"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+      <img id="modalImg" class="modal-img" src="" alt="Province">
+      <h3 id="modalTitle" style="color: var(--navy-primary); font-size: 22px; margin-bottom: 8px;"></h3>
+      <p id="modalDesc" style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px;"></p>
+      
+      <!-- Visitor Entry Pricing Display -->
+      <div class="price-box">
+        <div class="price-card">
+          <div class="price-card-title">🇰🇭 ភ្ញៀវជាតិ (Cambodian)</div>
+          <div class="price-card-val" id="modalPriceKhmer"></div>
+        </div>
+        <div class="price-card foreign">
+          <div class="price-card-title">🌐 ភ្ញៀវបរទេស (Foreigner)</div>
+          <div class="price-card-val" id="modalPriceForeign"></div>
+        </div>
+      </div>
+
+      <!-- Booking Contacts Section -->
+      <div class="booking-box">
+        <h4>📞 លេខទូរស័ព្ទកក់សំបុត្រធ្វើដំណើរ (Airplane & Bus)</h4>
+        <ul class="booking-list" id="modalBookingContacts"></ul>
+      </div>
+
+      <!-- Specific Attraction Spotlight Section -->
+      <div class="spotlight-box">
+        <h4>🌟 តំបន់ទេសចរណ៍សំខាន់ៗ (Highlight Spot)</h4>
+        <div class="spotlight-item">
+          <!-- Passing image, name, and description to openLightbox function -->
+          <img id="modalSpotlightImg" class="spotlight-thumb" src="" alt="Spotlight Attraction" onclick="openLightboxFromSpotlight()" title="ចុចដើម្បីមើលរូបភាពពេញអេក្រង់">
+          <div>
+            <strong id="modalSpotlightName" style="font-size: 13px; color: var(--navy-primary);"></strong>
+            <p id="modalSpotlightDesc" class="spotlight-desc"></p>
+            <span style="font-size: 11px; color: var(--teal-accent); display: inline-block; margin-top: 4px; cursor: pointer;" onclick="openLightboxFromSpotlight()">🔍 មើលរូបភាពធំពេញអេក្រង់ជាមួយការពិពណ៌នា</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Image Lightbox Overlay with White Background on Left Side Description -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      
+      <!-- Description & Title on Left Side with White Background -->
+      <div class="lightbox-caption">
+        <div id="lightboxTitle" class="lightbox-title"></div>
+        <div id="lightboxDesc" class="lightbox-desc"></div>
+      </div>
+
+      <!-- Image on Right Side -->
+      <div class="lightbox-img-wrapper">
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Fullscreen View">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-cta">
+        រៀបចំផែនការដំណើរកម្សាន្តទៅកាន់ ២៥ រាជធានី-ខេត្ត នៃប្រទេសកម្ពុជាថ្ងៃនេះ!
+      </div>
+      <p style="font-size: 12px; color: #9ca3af;">
+        &copy; 2026 HAIENAPLAN • Create By Pronet
+      </p>
+    </div>
+  </footer>
+
+  <!-- Complete JavaScript Database for All 25 Provinces with Lightbox Descriptions -->
+  <script>
+    const provinces = [
+      { 
+        id: 1, 
+        name: "រាជធានីភ្នំពេញ", 
+        region: "central", 
+        regionName: "ភាគកណ្ដាល", 
+        img: "12.jpg", 
+        desc: "រាជធានីនៃប្រទេសកម្ពុជា សម្បូរដោយស្ថាបត្យកម្មប្រវត្តិសាស្ត្រ វប្បធម៌ និងតំបន់មាត់ទន្លេដ៏រស់រវើក។", 
+        priceKhmer: "ឥតគិតថ្លៃ - $1.00 (តាមទីតាំង)",
+        priceForeign: "$5.00 - $10.00 / ទីតាំង",
+        flightPhone: "+855 23 888 000 (Cambodia Angkor Air)",
+        busPhone: "+855 23 218 833 (VET Express / Capitol Bus)",
+        spotlightName: "ព្រះបរមរាជវាំង",
+        spotlightImg: "37.jpg",
+        spotlightDesc: "ព្រះបរមរាជវាំងនៃព្រះរាជាណាចក្រកម្ពុជា គឺជាសញ្ញាណស្ថាបត្យកម្មដ៏ប្រណិត និងជាទីលំនៅរបស់ព្រះមហាក្សត្រ។"
+      },
+      { 
+        id: 2, 
+        name: "សៀមរាប", 
+        region: "northwest", 
+        regionName: "ភាគពាយ័ព្យ", 
+        img: "13.avif", 
+        desc: "បេះដូងនៃអរិយធម៌អង្គរ ជាទីតាំងនៃអច្ឆរិយវត្ថុពិភពលោក និងបេតិកភណ្ឌប្រវត្តិសាស្ត្រ។", 
+        priceKhmer: "ឥតគិតថ្លៃ (ចូលប្រាសាទអង្គរ)",
+        priceForeign: "$37.00 (1 ថ្ងៃ) / $62.00 (3 ថ្ងៃ)",
+        flightPhone: "+855 63 964 400 (Siem Reap Airport)",
+        busPhone: "+855 63 963 888 (Giant Ibis / Larryta)",
+        spotlightName: "ប្រាសាទអង្គរវត្ត",
+        spotlightImg: "38.jpg",
+        spotlightDesc: "បេតិកភណ្ឌពិភពលោក UNESCO ដែលមានស្នាដៃឆ្លាក់ក្បូរខ្នាយ និងសំណង់ថ្មភក់ដ៏អស្ចារ្យមិនធ្លាប់មាន។"
+      },
+      { 
+        id: 3, 
+        name: "ព្រះសីហនុ", 
+        region: "coastal", 
+        regionName: "ភាគត្បូង/ឆ្នេរ", 
+        img: "14.jpg", 
+        desc: "ក្រុងឆ្នេរសមុទ្រភាគខាងត្បូង ច្រកទ្វារទៅកាន់កោះធម្មជាតិដ៏ស្រស់ស្អាតដូចជាកោះរ៉ុង។", 
+        priceKhmer: "ឥតគិតថ្លៃ (សំបុត្រកាណូត $15 - $25)",
+        priceForeign: "ឥតគិតថ្លៃ (សំបុត្រកាណូត $20 - $30)",
+        flightPhone: "+855 34 934 000 (Sihanouk Airport)",
+        busPhone: "+855 34 933 999 (Virak Buntham / Mey Hong)",
+        spotlightName: "កោះរ៉ុងសន្លឹម",
+        spotlightImg: "39.jpg",
+        spotlightDesc: "កោះដែលមានឆ្នេរខ្សាច់សក្បុសទឹកសមុទ្រពណ៌ខៀវស្រងាត់ សាកសមបំផុតសម្រាប់ការព្យាយាមសម្រាកលំហែកាយ។"
+      },
+      { 
+        id: 4, 
+        name: "កំពត", 
+        region: "coastal", 
+        regionName: "ភាគត្បូង/ឆ្នេរ", 
+        img: "15.avif", 
+        desc: "ខេត្តទេសចរណ៍តាមដងព្រែក ល្បីល្បាញដោយសារម្រេចកំពត ភ្នំបូកគោ និងកាយ៉ាក់។", 
+        priceKhmer: "ឥតគិតថ្លៃ - $1.00",
+        priceForeign: "$2.00 - $5.00",
+        flightPhone: "ប្រើប្រាស់ព្រលានយន្តហោះភ្នំពេញ/ព្រះសីហនុ",
+        busPhone: "+855 33 932 888 (Giant Ibis Kampot)",
+        spotlightName: "ឧទ្យានជាតិភ្នំបូកគោ",
+        spotlightImg: "40.jpg",
+        spotlightDesc: "តំបន់ខ្ពង់រាបមានអាកាសធាតុត្រជាក់ស្រុះ និងមានអគារប្រវត្តិសាស្ត្រសម័យបារាំងព្រមទាំងទឹកធ្លាក់ដ៏ស្រស់ស្អាត។"
+      },
+      { 
+        id: 5, 
+        name: "បាត់ដំបង", 
+        region: "northwest", 
+        regionName: "ភាគពាយ័ព្យ", 
+        img: "16.jpg", 
+        desc: "ជង្រុកស្រូវនៃកម្ពុជា សម្បូរដោយអគារបុរាណបារាំង សិល្បៈ និងឡូរីឫស្សី។", 
+        priceKhmer: "$1.00 - $2.50 (ឡូរី)",
+        priceForeign: "$3.00 - $5.00",
+        flightPhone: "ប្រើប្រាស់ព្រលានយន្តហោះសៀមរាប",
+        busPhone: "+855 53 952 777 (Capitol Bus / VET Express)",
+        spotlightName: "ភ្នំសំពៅ",
+        spotlightImg: "41.webp",
+        spotlightDesc: "រមណីយដ្ឋានប្រវត្តិសាស្ត្រ និងជាទីកន្លែងមើលហ្វូងប្រជៀវរាប់លានក្បាលហើរចេញពីល្អាងពេលព្រលប់។"
+      },
+      { 
+        id: 6, 
+        name: "មណ្ឌលគិរី", 
+        region: "northeast", 
+        regionName: "ភាគឦសាន", 
+        img: "18.jpg", 
+        desc: "តំបន់ភ្នំភាគឦសាន មានអាកាសធាតុត្រជាក់ ព្រៃឈើខៀវស្រងាត់ ទឹកធ្លាក់ និងជម្រកដំរី។", 
+        priceKhmer: "$0.50 - $1.00",
+        priceForeign: "$2.50 - $5.00",
+        flightPhone: "ពុំមានព្រលានយន្តហោះពាណិជ្ជកម្ម",
+        busPhone: "+855 73 988 889 (Virak Buntham Mondulkiri)",
+        spotlightName: "ទឹកធ្លាក់ប៊ូស្រា",
+        spotlightImg: "42.jpg",
+        spotlightDesc: "ទឹកធ្លាក់ដ៏ធំ និងល្បីល្បាញជាងគេនៅតំបន់ឦសាន ចែកចេញជាច្រើនដំណាក់កាលកណ្តាលព្រៃជ្រៅ។"
+      },
+      { 
+        id: 7, 
+        name: "រតនគិរី", 
+        region: "northeast", 
+        regionName: "ភាគឦសាន", 
+        img: "17.webp", 
+        desc: "ដីកោះនៃធម្មជាតិភ្នំភ្លើងបុរាណ បឹងធម្មជាតិភ្លើងពិភពលោក និងជនជាតិដើមភាគតិច។", 
+        priceKhmer: "$0.50 (បឹងយក្សឡោម)",
+        priceForeign: "$2.00",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 75 977 788 (Virak Buntham Ratanakiri)",
+        spotlightName: "បឹងយក្សឡោម",
+        spotlightImg: "43.jpg",
+        spotlightDesc: "បឹងភ្នំភ្លើងបុរាណដែលមានទឹកថ្លាឈ្វេង រាងមូលស្ទើរទាំងស្រុង និងព័ទ្ធជុំវិញដោយព្រៃឈើក្រាស់ឃ្មឹក។"
+      },
+      { 
+        id: 8, 
+        name: "កែប", 
+        region: "coastal", 
+        regionName: "ភាគត្បូង/ឆ្នេរ", 
+        img: "19.jpg", 
+        desc: "ខេត្តឆ្នេរសមុទ្រដ៏ស្ងប់ស្ងាត់ ល្បីល្បាញដោយសារផ្សារក្តាមស្រស់ៗ និងកោះទន្សាយ។", 
+        priceKhmer: "ឥតគិតថ្លៃ (សំបុត្រទូកកោះទន្សាយ $8 - $10)",
+        priceForeign: "ឥតគិតថ្លៃ (សំបុត្រទូកកោះទន្សាយ $10 - $12)",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 36 988 777 (VET Express Kep)",
+        spotlightName: "ដូងទេរ",
+        spotlightImg: "44.jpg",
+        spotlightDesc: "ដូងទេរជារមណីយដ្ឋានធម្មជាតិអមតាមដងព្រែក ល្បីល្បាញដោយសារដើមដូងលយអោនលើផ្ទៃទឹក និងម្លប់ឈើត្រជាក់។"
+      },
+      { 
+        id: 9, 
+        name: "កោះកុង", 
+        region: "coastal", 
+        regionName: "ភាគត្បូង/ឆ្នេរ", 
+        img: "20.jpg", 
+        desc: "ដែនដីអក្សរសាស្ត្រធម្មជាតិ ព្រៃកោងកាងដ៏ធំជាងគេ និងតំបន់ជួរភ្នំក្រវ៉ាញ។", 
+        priceKhmer: "$0.75 - $1.50",
+        priceForeign: "$3.00 - $5.00",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 35 936 888 (Virak Buntham Koh Kong)",
+        spotlightName: "ព្រៃកោងកាងពាមក្រសោប",
+        spotlightImg: "45.png",
+        spotlightDesc: "ប្រព័ន្ធព្រៃកោងកាងធម្មជាតិដ៏ធំធេង មានស្ពានបាគងបត់បែនសម្រាប់ដើរទស្សនាកម្សាន្ត និងជិះទូកកម្សាន្ត។"
+      },
+      { 
+        id: 10, 
+        name: "កណ្តាល", 
+        region: "central", 
+        regionName: "ភាគកណ្ដាល", 
+        img: "21.jpg", 
+        desc: "ខេត្តព័ទ្ធជុំវិញរាជធានីភ្នំពេញ សម្បូរដោយប្រាសាទបុរាណឧដុង្គ និងភូមិសិប្បកម្ម។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$1.00 - $2.00",
+        flightPhone: "ប្រើប្រាស់ព្រលានយន្តហោះអន្តរជាតិភ្នំពេញ",
+        busPhone: "+855 23 218 833 (រថយន្តក្រុងមូលដ្ឋាន)",
+        spotlightName: "ភ្នំឧដុង្គ",
+        spotlightImg: "46.jpg",
+        spotlightDesc: "អតីតរាជធានីបុរាណ មានចេតិយព្រះមហាក្សត្រតាំងនៅលើខ្នងភ្នំ និងមានទេសភាពស្រស់ស្ខាយពីលើកំពូល។"
+      },
+      { 
+        id: 11, 
+        name: "កំពង់ចាម", 
+        region: "east", 
+        regionName: "ភាគកើត", 
+        img: "22.webp", 
+        desc: "ខេត្តជាប់ដងទន្លេមេគង្គ មានស្ពានឫស្សីបុរាណ និងចម្ការកៅស៊ូដ៏ធំល្វឹងល្វើយ។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$2.00",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 42 941 555 (Sorya Bus)",
+        spotlightName: "ស្ពានឫស្សីកោះប៉ែន",
+        spotlightImg: "47.jpg",
+        spotlightDesc: "ស្ពានឫស្សីដ៏វែងជាងគេឆ្លងកាត់ទន្លេមេគង្គទៅកាន់កោះប៉ែន ដែលសាងសង់ឡើងជាថ្មីរាល់ឆ្នាំក្នុងរដូវប្រាំង។"
+      },
+      { 
+        id: 12, 
+        name: "កំពង់ឆ្នាំង", 
+        region: "central", 
+        regionName: "ភាគកណ្ដាល", 
+        img: "23.jpg", 
+        desc: "ល្បីល្បាញខាងសិប្បកម្មធ្វើឆ្នាំងដី និងភូមិបណ្តែតទឹកនៅលើបឹងទន្លេសាប។", 
+        priceKhmer: "ឥតគិតថ្លៃ (ជួលទូក $5 - $10)",
+        priceForeign: "$2.00 (ជួលទូក $10 - $15)",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 26 988 666 (Sorya Express)",
+        spotlightName: "ទឹកធ្លាក់ស្រែអំពិល",
+        spotlightImg: "48.jpg",
+        spotlightDesc: "ទឹកធ្លាក់ស្រែអំពិលតំបន់ទឹកធ្លាក់ធម្មជាតិក្រោមម្លប់ព្រៃក្រាស់ មានទឹកធ្លាក់រាក់ៗសាកសមសម្រាប់ការងូតទឹករំសាយភាពនឿយហត់ រួមទាំងមានកញ្ចុះនិងស្ពានឈើសម្រាប់អង្គុយលំហែកាយ។"
+      },
+      { 
+        id: 13, 
+        name: "កំពង់ស្ពឺ", 
+        region: "central", 
+        regionName: "ភាគកណ្ដាល", 
+        img: "24.jpg", 
+        desc: "ដែនដីស្ករត្នោត កំពូលភ្នំខ្ពស់ជាងគេនៅកម្ពុជា (ភ្នំឱរ៉ាល់) និងតំបន់ខ្នងផ្សារ។", 
+        priceKhmer: "ឥតគិតថ្លៃ - $1.00",
+        priceForeign: "$3.00 - $5.00",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 25 987 111 (Virak Buntham)",
+        spotlightName: "ឧទ្យានជាតិគិរីរម្យ",
+        spotlightImg: "49.jpg",
+        spotlightDesc: "តំបន់ព្រៃស្រល់ធម្មជាតិនៅលើខ្នងភ្នំ មានអាកាសធាតុត្រជាក់ ទឹកធ្លាក់ និងផ្លូវសម្រាប់ជិះកង់/ដើរព្រៃ។"
+      },
+      { 
+        id: 14, 
+        name: "កំពង់ធំ", 
+        region: "central", 
+        regionName: "ភាគកណ្ដាល", 
+        img: "25.jpg", 
+        desc: "ទីតាំងនៃរមណីយដ្ឋានប្រវត្តិសាស្ត្រសម្បូរព្រៃគុក បេតិកភណ្ឌពិភពលោក UNESCO។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$10.00 (សម្បូរព្រៃគុក)",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 62 961 222 (Capitol Bus)",
+        spotlightName: "ប្រាសាទសម្បូរព្រៃគុក",
+        spotlightImg: "50.jpg",
+        spotlightDesc: "ក្រុមប្រាសាទបុរាណសម័យចេនឡាដ៏ចំណាស់សាងសង់ពីឥដ្ឋតាន់ ស្ថិតក្រោមម្លប់ឈើព្រៃធម្មជាតិដ៏ស្ងប់ស្ងាត់។"
+      },
+      { 
+        id: 15, 
+        name: "ក្រចេះ", 
+        region: "northeast", 
+        regionName: "ភាគឦសាន", 
+        img: "26.jpg", 
+        desc: "ផ្ទះនៃសត្វផ្សោតក្បាលត្រឡោកទន្លេមេគង្គ និងអគារប្រវត្តិសាស្ត្របារាំង។", 
+        priceKhmer: "$1.00 - $2.00 (មើលផ្សោត)",
+        priceForeign: "$9.00 - $12.00 (ទូកមើលផ្សោត)",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 72 971 333 (Sorya Express)",
+        spotlightName: "អន្លង់ផ្សោតព្រែកកាំពី",
+        spotlightImg: "51.jpg",
+        spotlightDesc: "ទីតាំងអភិរក្សសត្វផ្សោតទឹកសាបទន្លេមេគង្គដ៏កម្រ ដែលអ្នកទស្សនាអាចជិះទូកមើលពួកវាលោតលេងយ៉ាងជិត។"
+      },
+      { 
+        id: 16, 
+        name: "ស្ទឹងត្រែង", 
+        region: "northeast", 
+        regionName: "ភាគឦសាន", 
+        img: "27.webp", 
+        desc: "ខេត្តភាគខាងជើង ជាចំណុចប្រសព្វនៃទន្លេមេគង្គ និងទន្លេសេកុង ព្រមទាំងតំបន់រាមសារ។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$2.00 - $4.00",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 74 974 444 (Virak Buntham)",
+        spotlightName: "តំបន់រាមសារស្ទឹងត្រែង",
+        spotlightImg: "52.webp",
+        spotlightDesc: "តំបន់ដីសើមអន្តរជាតិ សំបូរទៅដោយជីវចម្រុះ និងកោះលិចទឹកតូចៗស្រស់ស្អាតក្រៃលែងតាមដងទន្លេ។"
+      },
+      { 
+        id: 17, 
+        name: "ព្រះវិហារ", 
+        region: "northwest", 
+        regionName: "ភាគពាយ័ព្យ", 
+        img: "28.jpg", 
+        desc: "ទីតាំងនៃប្រាសាទព្រះវិហារលើកំពូលភ្នំដងរែក និងប្រាសាទកោះកែរ។", 
+        priceKhmer: "ឥតគិតថ្លៃ (ឡានឡើងភ្នំ $5)",
+        priceForeign: "$10.00 (ព្រះវិហារ) / $15.00 (កោះកែរ)",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 64 985 555 (Virak Buntham)",
+        spotlightName: "ប្រាសាទព្រះវិហារ",
+        spotlightImg: "53.jpg",
+        spotlightDesc: "ប្រាសាទថ្មបុរាណសាងសង់នៅលើខ្នងភ្នំដងរែកដ៏ខ្ពស់កប់ពពក ដែលជាបេតិកភណ្ឌពិភពលោកទីពីររបស់កម្ពុជា។"
+      },
+      { 
+        id: 18, 
+        name: "បន្ទាយមានជ័យ", 
+        region: "northwest", 
+        regionName: "ភាគពាយ័ព្យ", 
+        img: "29.webp", 
+        desc: "ខេត្តព្រំដែនភាគពាយ័ព្យ សម្បូរដោយប្រាសាទបុរាណបន្ទាយឆ្មារ។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$5.00 (បន្ទាយឆ្មារ)",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 54 958 666 (Capitol Bus)",
+        spotlightName: "ប្រាសាទបន្ទាយឆ្មារ",
+        spotlightImg: "54.jpg",
+        spotlightDesc: "ប្រាសាទបុរាណដ៏ធំល្វឹងល្វើយមានជញ្ជាំងឆ្លាក់រូបព្រះលោកេសូរដ៏អស្ចារ្យ លាក់ខ្លួនក្នុងព្រៃជ្រៅ។"
+      },
+      { 
+        id: 19, 
+        name: "ឧត្តរមានជ័យ", 
+        region: "northwest", 
+        regionName: "ភាគពាយ័ព្យ", 
+        img: "30.jpg", 
+        desc: "ខេត្តភាគខាងជើងជាប់ជួរភ្នំដងរែក មានរមណីយដ្ឋានធម្មជាតិ និងប្រវត្តិសាស្ត្រ។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$2.00",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 65 982 777 (Local Taxi)",
+        spotlightName: "ប្រាសាទតាមាន់",
+        spotlightImg: "55.jpg",
+        spotlightDesc: "ប្រាសាទបុរាណសម័យអង្គរស្ថិតនៅតាមបណ្តោយព្រំដែន ដែលមានស្ថាបត្យកម្មថ្មភក់យ៉ាងប្រណិត។"
+      },
+      { 
+        id: 20, 
+        name: "ពោធិ៍សាត់", 
+        region: "northwest", 
+        regionName: "ភាគពាយ័ព្យ", 
+        img: "31.jpg", 
+        desc: "ល្បីល្បាញខាងថ្មកែវចម្លាក់ ផ្លូវជាតិលេខ៥៥ (ផ្លូវបត់បែន) និងភ្នំ១៥០០។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$2.00 - $3.00",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 52 951 888 (Capitol Bus)",
+        spotlightName: "ភ្នំ១៥០០ (ផ្លូវអន្ទង់អាំង)",
+        spotlightImg: "56.jpg",
+        spotlightDesc: "តំបន់ភ្នំដែលមានទេសភាពអ័ព្ទគ្គហបាំង និងផ្លូវខ្សែកោងស្រស់ស្អាតជាងគេដំណើរទៅកាន់ស្រុកវាលវែង។"
+      },
+      { 
+        id: 21, 
+        name: "តាកែវ", 
+        region: "central", 
+        regionName: "ភាគកណ្ដាល", 
+        img: "32.jpg", 
+        desc: "អាយ្យកោនៃអរិយធម៌ខ្មែរ (អាណាចក្រភ្នំ) សម្បូរប្រាសាទបុរាណប្រវត្តិសាស្ត្រ។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "$2.00 - $3.00",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 32 931 999 (Sorya Express)",
+        spotlightName: "ប្រាសាទភ្នំជីសូរ",
+        spotlightImg: "57.jpg",
+        spotlightDesc: "ប្រាសាទបុរាណសាងសង់លើកំពូលភ្នំខ្ពស់ ដែលត្រូវឡើងកាំជណ្តើរថ្មដើម្បីទស្សនាវាលស្រែពណ៌បៃតងពីលើ។"
+      },
+      { 
+        id: 22, 
+        name: "ព្រៃវែង", 
+        region: "east", 
+        regionName: "ភាគកើត", 
+        img: "33.jpg", 
+        desc: "ខេត្តកសិកម្មតាមដងទន្លេមេគង្គ មានស្ពានអ្នកលឿង (ស្ពានត្សឹបាសា) ដ៏ស្កឹមស្កៃ។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "ឥតគិតថ្លៃ - $1.00",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 43 942 111 (Virak Buntham)",
+        spotlightName: "ស្ពានអ្នកលឿង (ត្សឹបាសា)",
+        spotlightImg: "58.jpg",
+        spotlightDesc: "ស្ពានខ្សែកាបដ៏ធំ និងវែងជាងគេឆ្លងកាត់ទន្លេមេគង្គ តភ្ជាប់ទំនាក់ទំនងចរាចរណ៍ជាតិយ៉ាងសំខាន់។"
+      },
+      { 
+        id: 23, 
+        name: "ស្វាយរៀង", 
+        region: "east", 
+        regionName: "ភាគកើត", 
+        img: "34.jpg", 
+        desc: "ខេត្តព្រំដែនភាគកើតកម្ពុជា-វៀតណាម មានច្រកទ្វារអន្តរជាតិបាវិត។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "ឥតគិតថ្លៃ - $1.00",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 44 945 222 (Virak Buntham)",
+        spotlightName: "ច្រកអន្តរជាតិបាវិត",
+        spotlightImg: "59.jpg",
+        spotlightDesc: "តំបន់ទីប្រជុំជនព្រំដែនអន្តរជាតិដ៏មមាញឹក មានសណ្ឋាគារ និងកាស៊ីណូនានា។"
+      },
+      { 
+        id: 24, 
+        name: "ត្បូងឃ្មុំ", 
+        region: "east", 
+        regionName: "ភាគកើត", 
+        img: "35.webp", 
+        desc: "ខេត្តថ្មីបង្កើតឡើងឆ្នាំ២០១៤ សម្បូរដោយចម្ការកៅស៊ូ និងរមណីយដ្ឋានហ្លួងព្រះស្តេចកន។", 
+        priceKhmer: "ឥតគិតថ្លៃ",
+        priceForeign: "ឥតគិតថ្លៃ - $1.00",
+        flightPhone: "ពុំមានព្រលានយន្តហោះ",
+        busPhone: "+855 42 948 333 (Capitol Bus)",
+        spotlightName: "រមណីយដ្ឋានហ្លួងព្រះស្តេចកន",
+        spotlightImg: "60.jpg",
+        spotlightDesc: "តំបន់ប្រវត្តិសាស្ត្រទាក់ទងនឹងព្រះបាទស្រេចកន ដែលមានទេសភាពអមដោយបឹងបួរធម្មជាតិ។"
+      },
+      { 
+        id: 25, 
+        name: "ប៉ៃលិន", 
+        region: "northwest", 
+        regionName: "ភាគពាយ័ព្យ", 
+        img: "36.webp", 
+        desc: "ដែនដីត្បូងកណ្តៀង ជួរភ្នំ និងទឹកធ្លាក់ធម្មជាតិដ៏ស្រស់ត្រកាល។", 
+        priceKhmer: "ឥតគិតថ្លៃ - $0.50",
+        priceForeign: "$2.00",
+        flightPhone: "ពុំមានជើងហោះហើរពាណិជ្ជកម្ម",
+        busPhone: "+855 53 955 444 (Paramount Express)",
+        spotlightName: "ទឹកធ្លាក់ភ្នំខៀវ",
+        spotlightImg: "61.jpg",
+        spotlightDesc: "ទឹកធ្លាក់ធម្មជាតិដ៏ស្រស់ស្អាតច្រើនថ្នាក់ ហូរធ្លាក់កាត់ព្រៃភ្នំក្រវ៉ាញយ៉ាងត្រជាក់ចិត្ត។"
+      }
+    ];
+
+    let activeRegion = 'all';
+    let currentSpotlightData = { name: '', desc: '', img: '' };
+
+    // Initialize Dropdown for Form
+    function populateDropdown() {
+      const select = document.getElementById('destinationSelect');
+      select.innerHTML = '';
+      provinces.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.name;
+        opt.textContent = p.name;
+        select.appendChild(opt);
+      });
+    }
+
+    // Render Cards
+    function renderCards(items) {
+      const grid = document.getElementById('destinationsGrid');
+      const stats = document.getElementById('statsBar');
+      grid.innerHTML = '';
+
+      stats.textContent = `បង្ហាញចំនួន ${items.length} ក្នុងចំណោម ២៥ រាជធានី-ខេត្ត`;
+
+      if (items.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #888; padding: 40px;">មិនមានទិន្នន័យខេត្តដែលអ្នកស្វែងរកឡើយ។</p>';
+        return;
+      }
+
+      items.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'dest-card';
+        card.onclick = () => openModal(p);
+
+        card.innerHTML = `
+          <div class="dest-img-box">
+            <img src="${p.img}" alt="${p.name}">
+            <span class="dest-region-tag">${p.regionName}</span>
+          </div>
+          <div class="dest-info">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <div class="dest-card-footer">
+              <span>📍 មើលលម្អិត & តម្លៃ</span>
+              <span>→</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Filter by Region
+    function setRegionFilter(region, btn) {
+      activeRegion = region;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterAndSearch();
+    }
+
+    // Search and Filter Combined
+    function filterAndSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = provinces.filter(p => {
+        const matchesRegion = (activeRegion === 'all' || p.region === activeRegion);
+        const matchesQuery = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query);
+        return matchesRegion && matchesQuery;
+      });
+      renderCards(filtered);
+    }
+
+    // Modal Controls
+    function openModal(p) {
+      document.getElementById('modalImg').src = p.img;
+      document.getElementById('modalTitle').textContent = p.name;
+      document.getElementById('modalDesc').textContent = p.desc;
+      document.getElementById('modalPriceKhmer').textContent = p.priceKhmer;
+      document.getElementById('modalPriceForeign').textContent = p.priceForeign;
+
+      currentSpotlightData = {
+        name: p.spotlightName,
+        desc: p.spotlightDesc,
+        img: p.spotlightImg
+      };
+
+      document.getElementById('modalSpotlightImg').src = p.spotlightImg;
+      document.getElementById('modalSpotlightName').textContent = p.spotlightName;
+      document.getElementById('modalSpotlightDesc').textContent = p.spotlightDesc;
+
+      const contactsList = document.getElementById('modalBookingContacts');
+      contactsList.innerHTML = `
+        <li><span>✈ យន្តហោះ: ${p.flightPhone}</span></li>
+        <li><span>🚌 រថយន្តក្រុង: ${p.busPhone}</span></li>
+      `;
+
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModalDirect() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+
+    function closeModal(e) {
+      if (e.target.id === 'modalOverlay') {
+        closeModalDirect();
+      }
+    }
+
+    // Fullscreen Image Lightbox Controls
+    function openLightboxFromSpotlight() {
+      document.getElementById('lightboxImg').src = currentSpotlightData.img;
+      document.getElementById('lightboxTitle').textContent = currentSpotlightData.name;
+      document.getElementById('lightboxDesc').textContent = currentSpotlightData.desc;
+      document.getElementById('lightboxOverlay').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxOverlay').classList.remove('active');
+    }
+
+    // Travel Planner Generator
+    function generateItinerary(e) {
+      e.preventDefault();
+      const dest = document.getElementById('destinationSelect').value;
+      const visitor = document.getElementById('visitorType').value;
+      const days = document.getElementById('daysSelect').value;
+      const style = document.getElementById('styleSelect').value;
+
+      const selectedProv = provinces.find(p => p.name === dest);
+      const output = document.getElementById('plannerOutput');
+      
+      output.style.display = 'block';
+      output.innerHTML = `
+        <h4 style="color: var(--teal-accent); margin-bottom: 8px;">🚀 ផែនការដំណើរកម្សាន្ត: ${dest} (${days} ថ្ងៃ)</h4>
+        <p style="font-size: 13px; margin-bottom: 6px;"><strong>រចនាប័ទ្ម:</strong> ${style} | <strong>ប្រភេទភ្ញៀវ:</strong> ${visitor === 'khmer' ? 'ភ្ញៀវជាតិ' : 'ភ្ញៀវបរទេស'}</p>
+        <p style="font-size: 13px; margin-bottom: 6px;"><strong>តំបន់ទេសចរណ៍ស្នូលត្រូវទស្សនា:</strong> ${selectedProv ? selectedProv.spotlightName : 'រមណីយដ្ឋានធម្មជាតិ និងវប្បធម៌'}</p>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 10px;">💡 <em>ព័ត៌មានទំនាក់ទំនងកក់សំបុត្រ:</em> ${selectedProv ? selectedProv.busPhone : 'អាចទាក់ទងទីភ្នាក់ងារទេសចរណ៍ក្នុងស្រុក'}</p>
+      `;
+    }
+
+    // Initial Load
+    window.onload = () => {
+      renderCards(provinces);
+      populateDropdown();
+    };
+  </script>
+</body>
+</html>
